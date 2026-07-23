@@ -45,57 +45,48 @@
       text-decoration: underline;
     }
 
-    body {
-  background: var(--bg) url(https://tse4.mm.bing.net/th/id/OIP.KqPS9Mk4qyOG8agBw8t9lQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3');
+   /* === DARK ACADEMIA BACKGROUND SYSTEM === */
+
+body {
+  background: var(--bg) 
+    url('https://1drv.ms/i/c/225eb360ff25076a/IQBF27TveeiTS79zo8Y-lB8UAUgp1MzD9WdFsrJzE4RK3cc?download=1');
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
-}
-.page {
-  position: relative;
+  color: var(--text);
 }
 
+/* Cinematic vignette */
 .page::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+  background: url('https://1drv.ms/i/c/225eb360ff25076a/IQBT2LZYbUCiRoqnFIJdhQ3eAb6N32ENxaq6K-Eq65JYDHs?download=1');
+  background-size: cover;
+  opacity: 0.35; /* adjust 0.25–0.55 for mood */
   pointer-events: none;
 }
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('https://i.imgur.com/3e5pQ1R.png');
-  opacity: 0.15;
-  pointer-events: none;
-}
+
+/* Paper texture overlay */
 .page::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://i.imgur.com/0Y8FQmN.png');
+  background: url('https://1drv.ms/i/c/225eb360ff25076a/IQAYU-5Ag52lT4nhc3p0SbHvAaadDDi9DK7nd1XtHb1HxRo?download=1');
   background-size: 600px;
-  opacity: 0.08;
+  opacity: 0.08; /* subtle, academic */
   pointer-events: none;
 }
-@media (max-width: 600px) {
-  body {
-    background-size: 200%;
-  }
 
-  body::after {
-    opacity: 0.08;
-  }
-
-  .page::before {
-    background: radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.45) 100%);
-  }
-
-  .page::after {
-    opacity: 0.04;
-  }
+/* Noise grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://1drv.ms/i/c/225eb360ff25076a/IQBE2oIBCF7URb31RbpGwc4MAUeLvZxK8KjpOym_hZ9C8aw?download=1');
+  opacity: 0.15;
+  pointer-events: none;
 }
-
 
     /* NAV */
 
