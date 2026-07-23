@@ -10,7 +10,7 @@
 }
 
 /* ============================================
-   GLOBAL TYPOGRAPHY
+   GLOBAL TYPOGRAPHY + BODY
    ============================================ */
 
 body {
@@ -21,19 +21,23 @@ body {
 
   color: var(--text-strong);
   font-weight: 500;
+  margin: 0;
 }
 
+/* Headings */
 h1, h2, h3, h4 {
   color: var(--text-strong);
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
+/* Paragraphs */
 p {
   color: var(--text);
   font-weight: 500;
 }
 
+/* Links */
 a {
   color: var(--text-accent);
   font-weight: 600;
@@ -80,6 +84,20 @@ body::after {
    NAVIGATION
    ============================================ */
 
+header {
+  margin-bottom: 3rem;
+}
+
+.nav {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
 .nav a {
   color: var(--text-muted);
 }
@@ -89,18 +107,51 @@ body::after {
 }
 
 /* ============================================
-   HERO
+   HERO SECTION
    ============================================ */
 
+.hero {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  margin-bottom: 0.75rem;
+}
+
 .hero-subtitle {
+  font-size: 1rem;
   color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
 }
 
 .hero-underline {
+  width: 160px;
+  height: 2px;
   background: var(--text-accent);
+  margin: 0.75rem auto 1.75rem;
+}
+
+.hero-manifesto {
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-manifesto p + p {
+  margin-top: 0.75rem;
 }
 
 .hero-link {
+  margin-top: 1.5rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
   color: var(--text-accent);
 }
 
@@ -108,21 +159,55 @@ body::after {
    SECTION BASE
    ============================================ */
 
+section {
+  margin-top: 3.5rem;
+}
+
 .section-label {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-body {
+  font-size: 0.95rem;
   color: var(--text);
+  max-width: 640px;
+}
+
+.section-body p + p {
+  margin-top: 0.5rem;
 }
 
 .section-link {
+  margin-top: 1.25rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
   color: var(--text-accent);
+  display: inline-block;
 }
 
 /* ============================================
    ERAS GRID
    ============================================ */
+
+.eras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 720px;
+}
 
 .era {
   color: var(--text-strong);
@@ -137,7 +222,11 @@ body::after {
   border-color: rgba(0, 0, 0, 0.25);
 }
 
-/* Make era text readable */
+.era-tile {
+  padding: 1.25rem;
+  min-height: 110px;
+}
+
 .era-name,
 .era-theme {
   color: var(--text-strong);
@@ -147,10 +236,33 @@ body::after {
    ARCHIVE / RED THREAD / NOTES
    ============================================ */
 
-.archive-subsections,
-.red-thread-items span,
-.notes-preview {
+.archive-subsections {
+  list-style: none;
+  margin-top: 1rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+.archive-subsections li + li {
+  margin-top: 0.35rem;
+}
+
+.red-thread-items {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.red-thread-items span {
+  display: inline-block;
+  margin-right: 0.4rem;
+  color: var(--text-muted);
+}
+
+.notes-preview {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* ============================================
@@ -158,5 +270,66 @@ body::after {
    ============================================ */
 
 footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1c1814;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
+
+footer p + p {
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+  .eras-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 2.5rem 1.25rem 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .eras-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .eras-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+          <p>“I autopsy myself.”</p>
+        </div>
+
+        <a href="#top" class="section-link">back to top</a>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <p>swift-and-self-destruct</p>
+        <p>a psychological exploration of taylor swift’s lyricism</p>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
