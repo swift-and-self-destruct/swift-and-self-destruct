@@ -55,6 +55,7 @@
       letter-spacing: 0.18em;
       text-transform: lowercase;
       display: flex;
+      flex-wrap: wrap;
       gap: 1.75rem;
     }
 
@@ -202,7 +203,6 @@
 
     /* ARCHIVE LISTS */
 
-    .archive-list,
     .archive-subsections {
       list-style: none;
       margin-top: 1rem;
@@ -210,7 +210,6 @@
       color: var(--muted);
     }
 
-    .archive-list li + li,
     .archive-subsections li + li {
       margin-top: 0.35rem;
     }
@@ -249,6 +248,20 @@
 
     footer p + p {
       margin-top: 0.25rem;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 2.5rem 1.25rem 3.5rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .eras-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
   </style>
 </head>
@@ -308,13 +321,30 @@
         <a href="#lyric-psychology-lab" class="section-link">lyric psychology lab</a>
       </section>
 
+      <!-- LYRIC PSYCHOLOGY LAB (PREVIEW ONLY) -->
+      <section id="lyric-psychology-lab">
+        <div class="section-label">section ii</div>
+        <h2 class="section-title">Lyric psychology lab</h2>
+        <div class="section-body">
+          <p>
+            Close readings, psychological frameworks, and narrative dissections of individual songs —
+            the lab where lyrics become case studies.
+          </p>
+          <p>
+            Each track is treated as evidence: attachment styles, cognitive distortions, self-mythology,
+            grief cycles, and the ways we script ourselves into and out of love.
+          </p>
+        </div>
+        <a href="#era-archetypes" class="section-link">enter via eras</a>
+      </section>
+
       <!-- ERAS AS ARCHETYPES -->
       <section id="era-archetypes">
-        <div class="section-label">section ii</div>
+        <div class="section-label">section iii</div>
         <h2 class="section-title">The eras as psychological archetypes</h2>
         <div class="section-body">
           <p>
-            Nine eras, nine lenses on identity. Each tile is an archetype — hover to reveal the
+            Twelve eras, twelve lenses on identity. Each tile is an archetype — hover to reveal the
             psychological theme.
           </p>
         </div>
@@ -349,58 +379,81 @@
             <div class="era-theme">relational identity</div>
           </div>
           <div class="era-tile">
-            <div class="era-name">Folklore / Evermore</div>
-            <div class="era-theme">narrative therapy</div>
+            <div class="era-name">Folklore</div>
+            <div class="era-theme">mythic self-construction</div>
+          </div>
+          <div class="era-tile">
+            <div class="era-name">Evermore</div>
+            <div class="era-theme">narrative continuation &amp; emotional recursion</div>
           </div>
           <div class="era-tile">
             <div class="era-name">Midnights</div>
             <div class="era-theme">rumination &amp; self-interrogation</div>
           </div>
+          <div class="era-tile">
+            <div class="era-name">Tortured Poets Department: The Anthology</div>
+            <div class="era-theme">emotional autopsy &amp; literary self-dissection</div>
+          </div>
+          <div class="era-tile">
+            <div class="era-name">The Life of a Showgirl</div>
+            <div class="era-theme">performance identity &amp; triumphant self-reinvention</div>
+          </div>
         </div>
 
-        <a href="#era-archetypes" class="section-link">era archetypes</a>
+        <a href="#mirror-room" class="section-link">era archetypes</a>
       </section>
 
       <!-- MIRROR ROOM -->
       <section id="mirror-room">
-        <div class="section-label">section iii</div>
+        <div class="section-label">section iv</div>
         <h2 class="section-title">The mirror room</h2>
         <div class="section-body">
           <p>The lyrics you see yourself in.</p>
           <p>The patterns you keep repeating.</p>
           <p>The eras you’ve lived through — even if you didn’t name them.</p>
           <p>This is where the analysis turns inward.</p>
+          <p style="margin-top:0.75rem;">
+            Which era feels like your current self? Which one feels like a past life you still visit?
+          </p>
+          <p>
+            Where do you recognize your own emotional autopsy in <em>Tortured Poets</em>, or your
+            performance identity in <em>The Life of a Showgirl</em>?
+          </p>
         </div>
-        <a href="#mirror-room" class="section-link">enter mirror room</a>
+        <a href="#archive" class="section-link">enter mirror room</a>
       </section>
 
       <!-- ARCHIVE OF EVIDENCE -->
       <section id="archive">
-        <div class="section-label">section iv</div>
+        <div class="section-label">section v</div>
         <h2 class="section-title">Archive of evidence</h2>
         <div class="section-body">
           <p>
             A dark-academia library of everything gathered, annotated, and cross-referenced — the
             evidence of the investigation.
           </p>
+          <p style="margin-top:0.5rem;">
+            Each era has its own shelf: timelines, lyric annotations, psychological frameworks, and
+            visual moodboards.
+          </p>
         </div>
 
         <ul class="archive-subsections">
-          <li>annotated lyric summaries</li>
-          <li>psychological frameworks</li>
-          <li>album timelines</li>
-          <li>documents</li>
-          <li>photos</li>
-          <li>playlists</li>
-          <li>moodboards</li>
+          <li>annotated lyric summaries (per era)</li>
+          <li>psychological frameworks (identity, attachment, grief, mythmaking)</li>
+          <li>album timelines (Debut → Showgirl)</li>
+          <li>documents &amp; marginalia</li>
+          <li>photos &amp; visual artifacts</li>
+          <li>playlists &amp; soundscapes</li>
+          <li>moodboards &amp; era palettes</li>
         </ul>
 
-        <a href="#archive" class="section-link">open archive</a>
+        <a href="#red-thread" class="section-link">open archive</a>
       </section>
 
       <!-- RED THREAD -->
       <section id="red-thread">
-        <div class="section-label">section v</div>
+        <div class="section-label">section vi</div>
         <h2 class="section-title">The red thread</h2>
         <div class="section-body">
           <p>
@@ -415,18 +468,20 @@
           <span>emotional cycles.</span>
           <span>character archetypes.</span>
           <span>narrative reversals.</span>
+          <span>literary self-mythology.</span>
+          <span>performance as coping.</span>
         </div>
 
         <div class="section-body" style="margin-top: 1rem;">
           <p>The threads she pulls — and the ones you pull with her.</p>
         </div>
 
-        <a href="#red-thread" class="section-link">follow the red thread</a>
+        <a href="#antihero-notes" class="section-link">follow the red thread</a>
       </section>
 
       <!-- ANTIHERO NOTES -->
       <section id="antihero-notes">
-        <div class="section-label">section vi</div>
+        <div class="section-label">section vii</div>
         <h2 class="section-title">Antihero’s notes</h2>
         <div class="section-body">
           <p>
@@ -438,9 +493,11 @@
         <div class="notes-preview">
           <p>“I am both the unreliable narrator and the forensic analyst.”</p>
           <p>“Every era I survive becomes another exhibit.”</p>
+          <p>“I autopsy myself before anyone else can.”</p>
+          <p>“Some days I’m the tortured poet; some days I’m the showgirl who refuses to disappear.”</p>
         </div>
 
-        <a href="#antihero-notes" class="section-link">open notes</a>
+        <a href="#top" class="section-link">return to the study</a>
       </section>
     </main>
 
