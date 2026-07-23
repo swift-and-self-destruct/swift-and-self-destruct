@@ -20,13 +20,21 @@
       padding: 0;
     }
 
-    body {
-      font-family: "Playfair Display", Georgia, serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+   body {
+  background: var(--bg) url('https://i.imgur.com/8fK4Z7R.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
 
+    body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://i.imgur.com/3e5pQ1R.png');
+  opacity: 0.15;
+  pointer-events: none;
+}
+    
     .page {
       max-width: 960px;
       margin: 0 auto;
@@ -201,6 +209,29 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 900px) {
+  .eras-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .eras-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    margin-top: 3rem;
+  }
+}
+
+.era-tile {
+  padding: 1.25rem;
+  min-height: 110px;
+}
+    
     /* ARCHIVE LISTS */
 
     .archive-subsections {
