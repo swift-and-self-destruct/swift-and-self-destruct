@@ -1,61 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>swift-and-self-destruct</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #050506;
-      --text: #d9d0c4;
-      --muted: #9b9184;
-      --accent: #8b0000;
-      --tile: #111111;
-      --tile-border: #2a2520;
-    }
+/* ============================================
+   DARK ACADEMIA — GLOBAL COLOR SYSTEM
+   ============================================ */
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-      body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('https://i.imgur.com/3e5pQ1R.png');
-  opacity: 0.15;
-  pointer-events: none;
+:root {
+  --text: #1a1a1a;
+  --text-strong: #0d0d0d;
+  --text-accent: #2b2b2b;
+  --text-muted: #3a3a3a;
 }
-    
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
-      background-image: radial-gradient(circle at top left, #222 0, transparent 55%);
-    }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-  /* === DARK ACADEMIA BACKGROUND SYSTEM (GITHUB READY) === */
+/* ============================================
+   GLOBAL TYPOGRAPHY
+   ============================================ */
 
 body {
   background: var(--bg) url("assets/Background 01.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: var(--text);
+
+  color: var(--text-strong);
+  font-weight: 500;
 }
 
-/* Cinematic vignette */
+h1, h2, h3, h4 {
+  color: var(--text-strong);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: var(--text);
+  font-weight: 500;
+}
+
+a {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--text-strong);
+}
+
+/* ============================================
+   BACKGROUND TEXTURE SYSTEM
+   ============================================ */
+
 .page::before {
   content: "";
   position: absolute;
@@ -66,7 +57,6 @@ body {
   pointer-events: none;
 }
 
-/* Paper texture overlay */
 .page::after {
   content: "";
   position: absolute;
@@ -77,7 +67,6 @@ body {
   pointer-events: none;
 }
 
-/* Noise grain */
 body::after {
   content: "";
   position: fixed;
@@ -87,493 +76,87 @@ body::after {
   pointer-events: none;
 }
 
-    /* NAV */
+/* ============================================
+   NAVIGATION
+   ============================================ */
 
-    header {
-      margin-bottom: 3rem;
-    }
-
-    .nav {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: lowercase;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.75rem;
-    }
-
-    .nav a {
-      color: var(--muted);
-    }
-
-    .nav a:hover {
-      color: var(--text);
-    }
-
-    /* HERO */
-
-    .hero {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: 2.4rem;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .hero-underline {
-      width: 160px;
-      height: 2px;
-      background: var(--accent);
-      margin: 0.75rem auto 1.75rem;
-    }
-
-    .hero-manifesto {
-      font-size: 0.95rem;
-      max-width: 520px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .hero-manifesto p + p {
-      margin-top: 0.75rem;
-    }
-
-    .hero-link {
-      margin-top: 1.5rem;
-      font-family: "Inter", system-ui, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: lowercase;
-      color: var(--accent);
-    }
-
-    /* SECTION BASE */
-
-    section {
-      margin-top: 3.5rem;
-    }
-
-    .section-label {
-      font-family: "Inter", system-ui, sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-body {
-      font-size: 0.95rem;
-      color: var(--text);
-      max-width: 640px;
-    }
-
-    .section-body p + p {
-      margin-top: 0.5rem;
-    }
-
-    .section-link {
-      margin-top: 1.25rem;
-      font-family: "Inter", system-ui, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: lowercase;
-      color: var(--accent);
-      display: inline-block;
-    }
-
-    /* ERAS GRID */
-
-    .eras-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-      max-width: 720px;
-    }
-
-    .era-tile {
-      background: var(--tile);
-      border: 1px solid var(--tile-border);
-      padding: 1rem;
-      min-height: 90px;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .era-name {
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .era-theme {
-      font-size: 0.9rem;
-      margin-top: 0.4rem;
-      color: var(--text);
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .era-tile:hover {
-      background: #181414;
-      transform: translateY(-2px);
-    }
-
-    .era-tile:hover .era-theme {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 900px) {
-  .eras-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.nav a {
+  color: var(--text-muted);
 }
 
-@media (max-width: 550px) {
-  .eras-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
+.nav a:hover {
+  color: var(--text-strong);
 }
 
-@media (max-width: 600px) {
-  section {
-    margin-top: 3rem;
-  }
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero-subtitle {
+  color: var(--text-muted);
 }
 
-.era-tile {
-  padding: 1.25rem;
-  min-height: 110px;
+.hero-underline {
+  background: var(--text-accent);
 }
-    
-    /* ARCHIVE LISTS */
 
-    .archive-subsections {
-      list-style: none;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
+.hero-link {
+  color: var(--text-accent);
+}
 
-    .archive-subsections li + li {
-      margin-top: 0.35rem;
-    }
+/* ============================================
+   SECTION BASE
+   ============================================ */
 
-    /* RED THREAD */
+.section-label {
+  color: var(--text-muted);
+}
 
-    .red-thread-items {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
+.section-body {
+  color: var(--text);
+}
 
-    .red-thread-items span {
-      display: inline-block;
-      margin-right: 0.4rem;
-      color: var(--muted);
-    }
+.section-link {
+  color: var(--text-accent);
+}
 
-    /* ANTIHERO NOTES */
+/* ============================================
+   ERAS GRID
+   ============================================ */
 
-    .notes-preview {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-style: italic;
-    }
+.era {
+  color: var(--text-strong);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(2px);
+}
 
-    /* FOOTER */
+.era:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
+}
 
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid #1c1814;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+/* Make era text readable */
+.era-name,
+.era-theme {
+  color: var(--text-strong);
+}
 
-    footer p + p {
-      margin-top: 0.25rem;
-    }
+/* ============================================
+   ARCHIVE / RED THREAD / NOTES
+   ============================================ */
 
-    @media (max-width: 700px) {
-      .page {
-        padding: 2.5rem 1.25rem 3.5rem;
-      }
+.archive-subsections,
+.red-thread-items span,
+.notes-preview {
+  color: var(--text-muted);
+}
 
-      .hero-title {
-        font-size: 2rem;
-      }
+/* ============================================
+   FOOTER
+   ============================================ */
 
-      .eras-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <!-- NAVIGATION -->
-    <header>
-      <nav class="nav">
-        <a href="#thesis">thesis</a>
-        <a href="#lyric-psychology-lab">lyric psychology lab</a>
-        <a href="#era-archetypes">era archetypes</a>
-        <a href="#mirror-room">mirror room</a>
-        <a href="#archive">archive</a>
-        <a href="#red-thread">red thread</a>
-        <a href="#antihero-notes">antihero notes</a>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <main>
-      <section class="hero" id="top">
-        <h1 class="hero-title">swift-and-self-destruct</h1>
-        <p class="hero-subtitle">
-          A psychological exploration of Taylor Swift’s lyrics — and the selves they unravel.
-        </p>
-        <div class="hero-underline"></div>
-
-        <div class="hero-manifesto">
-          <p>
-            This is a study of identity, narrative collapse, mythmaking, and the emotional architecture
-            hidden inside Taylor Swift’s work.
-          </p>
-          <p>It is also a study of me.</p>
-          <p>Every era is an autopsy.<br />Every lyric is a mirror.<br />Every analysis is a reconstruction.</p>
-        </div>
-
-        <a href="#thesis" class="hero-link">self-destruct thesis</a>
-      </section>
-
-      <!-- WHAT THIS IS -->
-      <section id="thesis">
-        <div class="section-label">section i</div>
-        <h2 class="section-title">What this is</h2>
-        <div class="section-body">
-          <p>This site is an ongoing psychological investigation into Taylor Swift’s lyricism.</p>
-          <p>Not a fan blog.<br />Not a shrine.</p>
-          <p>A study.</p>
-          <p>
-            Of narrative identity.<br />
-            Of emotional patterning.<br />
-            Of the stories we tell ourselves and the ones we inherit.
-          </p>
-          <p>
-            And of the ways we self-destruct — and rebuild — across our own eras.
-          </p>
-        </div>
-        <a href="#lyric-psychology-lab" class="section-link">lyric psychology lab</a>
-      </section>
-
-      <!-- LYRIC PSYCHOLOGY LAB (PREVIEW ONLY) -->
-      <section id="lyric-psychology-lab">
-        <div class="section-label">section ii</div>
-        <h2 class="section-title">Lyric psychology lab</h2>
-        <div class="section-body">
-          <p>
-            Close readings, psychological frameworks, and narrative dissections of individual songs —
-            the lab where lyrics become case studies.
-          </p>
-          <p>
-            Each track is treated as evidence: attachment styles, cognitive distortions, self-mythology,
-            grief cycles, and the ways we script ourselves into and out of love.
-          </p>
-        </div>
-        <a href="#era-archetypes" class="section-link">enter via eras</a>
-      </section>
-
-      <!-- ERAS AS ARCHETYPES -->
-      <section id="era-archetypes">
-        <div class="section-label">section iii</div>
-        <h2 class="section-title">The eras as psychological archetypes</h2>
-        <div class="section-body">
-          <p>
-            Twelve eras, twelve lenses on identity. Each tile is an archetype — hover to reveal the
-            psychological theme.
-          </p>
-        </div>
-
-        <div class="eras-grid">
-          <div class="era-tile">
-            <div class="era-name">Debut</div>
-            <div class="era-theme">identity formation</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Fearless</div>
-            <div class="era-theme">idealized self</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Speak Now</div>
-            <div class="era-theme">assertion &amp; autonomy</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Red</div>
-            <div class="era-theme">emotional fragmentation</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">1989</div>
-            <div class="era-theme">reinvention</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Reputation</div>
-            <div class="era-theme">shadow integration</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Lover</div>
-            <div class="era-theme">relational identity</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Folklore</div>
-            <div class="era-theme">mythic self-construction</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Evermore</div>
-            <div class="era-theme">narrative continuation &amp; emotional recursion</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Midnights</div>
-            <div class="era-theme">rumination &amp; self-interrogation</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">Tortured Poets Department: The Anthology</div>
-            <div class="era-theme">emotional autopsy &amp; literary self-dissection</div>
-          </div>
-          <div class="era-tile">
-            <div class="era-name">The Life of a Showgirl</div>
-            <div class="era-theme">performance identity &amp; triumphant self-reinvention</div>
-          </div>
-        </div>
-
-        <a href="#mirror-room" class="section-link">era archetypes</a>
-      </section>
-
-      <!-- MIRROR ROOM -->
-      <section id="mirror-room">
-        <div class="section-label">section iv</div>
-        <h2 class="section-title">The mirror room</h2>
-        <div class="section-body">
-          <p>The lyrics you see yourself in.</p>
-          <p>The patterns you keep repeating.</p>
-          <p>The eras you’ve lived through — even if you didn’t name them.</p>
-          <p>This is where the analysis turns inward.</p>
-          <p style="margin-top:0.75rem;">
-            Which era feels like your current self? Which one feels like a past life you still visit?
-          </p>
-          <p>
-            Where do you recognize your own emotional autopsy in <em>Tortured Poets</em>, or your
-            performance identity in <em>The Life of a Showgirl</em>?
-          </p>
-        </div>
-        <a href="#archive" class="section-link">enter mirror room</a>
-      </section>
-
-      <!-- ARCHIVE OF EVIDENCE -->
-      <section id="archive">
-        <div class="section-label">section v</div>
-        <h2 class="section-title">Archive of evidence</h2>
-        <div class="section-body">
-          <p>
-            A dark-academia library of everything gathered, annotated, and cross-referenced — the
-            evidence of the investigation.
-          </p>
-          <p style="margin-top:0.5rem;">
-            Each era has its own shelf: timelines, lyric annotations, psychological frameworks, and
-            visual moodboards.
-          </p>
-        </div>
-
-        <ul class="archive-subsections">
-          <li>annotated lyric summaries (per era)</li>
-          <li>psychological frameworks (identity, attachment, grief, mythmaking)</li>
-          <li>album timelines (Debut → Showgirl)</li>
-          <li>documents &amp; marginalia</li>
-          <li>photos &amp; visual artifacts</li>
-          <li>playlists &amp; soundscapes</li>
-          <li>moodboards &amp; era palettes</li>
-        </ul>
-
-        <a href="#red-thread" class="section-link">open archive</a>
-      </section>
-
-      <!-- RED THREAD -->
-      <section id="red-thread">
-        <div class="section-label">section vi</div>
-        <h2 class="section-title">The red thread</h2>
-        <div class="section-body">
-          <p>
-            A slightly chaotic tracing of recurring motifs — the colors, metaphors, and emotional
-            cycles that won’t let go.
-          </p>
-        </div>
-
-        <div class="red-thread-items">
-          <span>colors.</span>
-          <span>metaphors.</span>
-          <span>emotional cycles.</span>
-          <span>character archetypes.</span>
-          <span>narrative reversals.</span>
-          <span>literary self-mythology.</span>
-          <span>performance as coping.</span>
-        </div>
-
-        <div class="section-body" style="margin-top: 1rem;">
-          <p>The threads she pulls — and the ones you pull with her.</p>
-        </div>
-
-        <a href="#antihero-notes" class="section-link">follow the red thread</a>
-      </section>
-
-      <!-- ANTIHERO NOTES -->
-      <section id="antihero-notes">
-        <div class="section-label">section vii</div>
-        <h2 class="section-title">Antihero’s notes</h2>
-        <div class="section-body">
-          <p>
-            Short, sharp reflections. The contradictions. The confessions. The self-mythology. Your
-            notes, your voice, your analysis — unfiltered.
-          </p>
-        </div>
-
-        <div class="notes-preview">
-          <p>“I am both the unreliable narrator and the forensic analyst.”</p>
-          <p>“Every era I survive becomes another exhibit.”</p>
-          <p>“I autopsy myself before anyone else can.”</p>
-          <p>“Some days I’m the tortured poet; some days I’m the showgirl who refuses to disappear.”</p>
-        </div>
-
-        <a href="#top" class="section-link">return to the study</a>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>swift-and-self-destruct</p>
-      <p>A psychological archive.</p>
-      <p>© Jess N-H, NC (2026)</p>
-    </footer>
-  </div>
-</body>
-</html>
+footer {
+  color: var(--text-muted);
+}
